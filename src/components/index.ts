@@ -25,17 +25,17 @@ class GameMain extends Scene {
 
         layerTree!.setCollisionByProperty({ collides: true })
         layerWater!.setCollisionByProperty({ collides: true })
-        
+
         this.player = new Player(this, 128, 0, 'player')
         this.cursor = this.input.keyboard!.createCursorKeys();
         const npc = new SpriteGenerator(this, 80, 450, 'npc1', 7, 'idle')
         const star = new SpriteGenerator(this, 80, 485, 'star', 3, 'shine')
         const dialogManager = new DialogManager(this);
         this.physics.add.collider(this.player, star, () => {
-            console.log('dialogue')
-            dialogManager.startDialog(['hello', 'how are you?'])
+            this.player?.setImmovable(true)
+            dialogManager.startDialog(['Привет, котик', 'Знаешь что сегодня за день?'])
+
         })
-        
         if (layerWater) {
             this.physics.add.collider(this.player, layerWater);
         }
