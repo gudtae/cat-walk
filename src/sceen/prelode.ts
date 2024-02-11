@@ -1,11 +1,11 @@
 import Phaser from "phaser";
-import map from '../../public/assets/map.json'
-import water from '../../public/assets/[A]Water_pipo.png'
-import grass from '../../public/assets/Grass_pipo.png'
-import base from '../../public/assets/BaseChip_pipo.png'
-import player from '../../public/assets/cat_assets.png'
-import npc1 from '../../public/assets/kitty.png'
-import star from '../../public/assets/S001_nyknck.png'
+import map from '../assets/map.json'
+import star from '../assets/S001_nyknck.png'
+import water from '../assets/[A]Water_pipo.png'
+import grass from '../assets/Grass_pipo.png'
+import base from '../assets/BaseChip_pipo.png'
+import player from '../assets/cat_assets.png'
+import npc1 from '../assets/kitty.png'
 class PreloadGame extends Phaser.Scene {
     constructor() {
         super("PreloadGame");
