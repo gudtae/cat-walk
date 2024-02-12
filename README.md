@@ -19,10 +19,10 @@
 - [npc kitty](https://caz-creates-games.itch.io/kitty)
 - [npc grey kitty](https://elthen.itch.io/2d-pixel-art-cat-sprites)
 - [heart](https://kububbis.itch.io/aesthetic-heart-icon-pack)
-- [small heart](ttps://gpway.itch.io/2d-pixel-heart)
+- [small heart](https://gpway.itch.io/2d-pixel-heart)
 
 
 ## Основная сцена
 
-![Сцена](./screen.png))
+![Сцена](./screen.png)
 
