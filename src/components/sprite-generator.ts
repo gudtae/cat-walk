@@ -1,13 +1,15 @@
 import Phaser from "phaser";
 
 class SpriteGenerator extends Phaser.Physics.Arcade.Sprite {
-    constructor(sceen: Phaser.Scene, x: number, y: number, spriteKey: string, end: number, keyName: string, ) {
+    constructor(sceen: Phaser.Scene, x: number, y: number, spriteKey: string, end: number, keyName: string, imm: boolean) {
         body: Phaser.Physics.Arcade.Body
         super(sceen, x, y, spriteKey);
         sceen.add.existing(this);
-        sceen.physics.add.existing(this);
         this.body = this.body as Phaser.Physics.Arcade.Body;
-        this.body.setImmovable(true);
+        if(imm){
+            sceen.physics.add.existing(this);
+            this.body.setImmovable(true);
+        }
         this.createSprite(spriteKey, keyName, end);
     }
     createSprite(spriteKey: string, keyName: string, end: number) {

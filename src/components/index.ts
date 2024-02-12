@@ -22,26 +22,43 @@ class GameMain extends Scene {
         const layerWater = map.createLayer('waterLayer', tileSetWater!)
         const layerBridge = map.createLayer('bridgeLayer', tileSetBase!)
         const layerTree = map.createLayer('treeLayer', tileSetBase!)
+        const layerHouse = map.createLayer('houseLayer', tileSetBase!)
+        const layerInsideH = map.createLayer('insidehouse', tileSetBase!)
 
         layerTree!.setCollisionByProperty({ collides: true })
         layerWater!.setCollisionByProperty({ collides: true })
+        layerHouse!.setCollisionByProperty({ collides: true })
+        layerInsideH!.setCollisionByProperty({ collides: true })
 
         this.player = new Player(this, 128, 0, 'player')
         this.cursor = this.input.keyboard!.createCursorKeys();
-        const npc = new SpriteGenerator(this, 80, 450, 'npc1', 7, 'idle')
-        const star = new SpriteGenerator(this, 80, 485, 'star', 3, 'shine')
+
+        const npc1 = new SpriteGenerator(this, 80, 450, 'npc1', 7, 'idle', false)
+        const star = new SpriteGenerator(this, 80, 485, 'star', 3, 'shine', true)
+        const npc2 = new SpriteGenerator(this, 595, 485, 'npc2', 4, 'idle', false)
+        const star2 = new SpriteGenerator(this, 605, 485, 'star', 3, 'shine', true)
+        const star3 = new SpriteGenerator(this, 817, 85, 'star', 3, 'shine', true)
+
         const dialogManager = new DialogManager(this);
         this.physics.add.collider(this.player, star, () => {
-            this.player?.setImmovable(true)
             dialogManager.startDialog(['Привет, котик', 'Знаешь что сегодня за день?'])
 
         })
-        if (layerWater) {
+        this.physics.add.collider(this.player, star2, () => {
+            console.log('npc2')
+        })
+
+        this.physics.add.collider(this.player, star3, () => {
+            console.log('npc3')
+        })
+
+        if (layerWater && layerTree && layerHouse && layerInsideH) {
             this.physics.add.collider(this.player, layerWater);
-        }
-        if (layerTree) {
             this.physics.add.collider(this.player, layerTree);
+            this.physics.add.collider(this.player, layerHouse)
+            this.physics.add.collider(this.player, layerInsideH)
         }
+
     }
 
     update() {

@@ -6,6 +6,7 @@ import grass from '../assets/Grass_pipo.png'
 import base from '../assets/BaseChip_pipo.png'
 import player from '../assets/cat_assets.png'
 import npc1 from '../assets/kitty.png'
+import npc2 from '../assets/Meow-Knight_Idle.png'
 class PreloadGame extends Phaser.Scene {
     constructor() {
         super("PreloadGame");
@@ -24,6 +25,10 @@ class PreloadGame extends Phaser.Scene {
             frameHeight: 32
         })
         this.load.spritesheet('star', star, {
+            frameWidth: 32,
+            frameHeight: 32
+        })
+        this.load.spritesheet('npc2', npc2, {
             frameWidth: 32,
             frameHeight: 32
         })
