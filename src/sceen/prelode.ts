@@ -14,7 +14,7 @@ class PreloadGame extends Phaser.Scene {
         super("PreloadGame");
     }
     preload() {
-        this.load.tilemapTiledJSON('map', map) 
+        this.load.tilemapTiledJSON('map', map)
         this.load.image('waterTile', water)
         this.load.image('grassTile', grass)
         this.load.image('baseTile', base)
@@ -23,7 +23,7 @@ class PreloadGame extends Phaser.Scene {
             frameHeight: 36
         })
         this.load.spritesheet('npc1', npc1, {
-            frameWidth:32,
+            frameWidth: 32,
             frameHeight: 32
         })
         this.load.spritesheet('star', star, {
@@ -43,9 +43,8 @@ class PreloadGame extends Phaser.Scene {
             frameHeight: 53
         })
     }
-    create(){
-    //    this.scene.start('Game')
-       this.scene.start('Credits')
+    create() {
+        this.scene.start('Game')
     }
 }
 
