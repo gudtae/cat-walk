@@ -30,7 +30,7 @@ class GameMain extends Scene {
         layerHouse!.setCollisionByProperty({ collides: true })
         layerInsideH!.setCollisionByProperty({ collides: true })
 
-        this.player = new Player(this, 128, 0, 'player')
+        this.player = new Player(this, 128, 0, 'player') //128, 0
         this.cursor = this.input.keyboard!.createCursorKeys();
 
         const npc1 = new SpriteGenerator(this, 80, 450, 'npc1', 7, 'idle', false)
@@ -41,15 +41,26 @@ class GameMain extends Scene {
 
         const dialogManager = new DialogManager(this);
         this.physics.add.collider(this.player, star, () => {
-            dialogManager.startDialog(['Привет, котик', 'Знаешь что сегодня за день?'])
-
+            dialogManager.startDialog(this, ['Привет, котик', 'Знаешь что сегодня за день?', 'С 14 февраля нас!', 'Я мечтаю провести этот день с тобой...', 'Это небольшая прогулка для тебя по тому что я успела сделать', "Я надеюсь что тебе понравится, иди дальше к домику"], ['Мур!', 'Лись :3'])
+            star.destroy()
         })
         this.physics.add.collider(this.player, star2, () => {
-            console.log('npc2')
+            dialogManager.startDialog(this, [
+                'Мур, сколько лет, сколько зим', 'Такое ощущение что мы встретились только вчера и вот уже прошло почти 5 лет', "Грустный факт мы ни разу не праздновали 14 февраля рядом, это грустно...", "Давай в следующем году исправим?", "Следуй дальше к фантану"
+            ], [
+                "Бегу", "Лись :3"
+            ])
+            star2.destroy()
         })
 
         this.physics.add.collider(this.player, star3, () => {
-            console.log('npc3')
+            dialogManager.startDialog(this, [
+                "Я рада что ты есть в моей жизни,", "Благодаря тебе я расту и развиваюсь, и я не всегда могу сказать насколько я тебе благодарна", "Я хочу что бы знал, что я счастлива рядом с тобой, и надеюсь это взаимно :3", "Я хочу тебе пожелать больше меня в твоей жизни, желательно в личном пространстве, не болей и оставайся таким же мур", "Я тебя тьмок"
+            ], [
+                'Тьмок', 'Лись :3'
+            ])
+            star3.destroy()
+            this.scene.start('Valentine')
         })
 
         if (layerWater && layerTree && layerHouse && layerInsideH) {

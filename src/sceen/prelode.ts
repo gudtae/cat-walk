@@ -7,6 +7,8 @@ import base from '../assets/BaseChip_pipo.png'
 import player from '../assets/cat_assets.png'
 import npc1 from '../assets/kitty.png'
 import npc2 from '../assets/Meow-Knight_Idle.png'
+import heart from '../assets/Без имени-1.png'
+import heart2 from '../assets/heart2.png'
 class PreloadGame extends Phaser.Scene {
     constructor() {
         super("PreloadGame");
@@ -32,9 +34,18 @@ class PreloadGame extends Phaser.Scene {
             frameWidth: 32,
             frameHeight: 32
         })
+        this.load.spritesheet('heart', heart, {
+            frameWidth: 126,
+            frameHeight: 107
+        })
+        this.load.spritesheet('heart2', heart2, {
+            frameWidth: 50,
+            frameHeight: 53
+        })
     }
     create(){
-       this.scene.start('Game')
+    //    this.scene.start('Game')
+       this.scene.start('Credits')
     }
 }
 
