@@ -38,6 +38,7 @@ class GameMain extends Scene {
         const npc2 = new SpriteGenerator(this, 595, 485, 'npc2', 4, 'idle', false)
         const star2 = new SpriteGenerator(this, 605, 485, 'star', 3, 'shine', true)
         const star3 = new SpriteGenerator(this, 817, 85, 'star', 3, 'shine', true)
+        const star4 = new SpriteGenerator(this, 917, 85, 'star', 3, 'shine', true)
 
         const dialogManager = new DialogManager(this);
         this.physics.add.collider(this.player, star, () => {
@@ -46,7 +47,11 @@ class GameMain extends Scene {
         })
         this.physics.add.collider(this.player, star2, () => {
             dialogManager.startDialog(this, [
-                'Мур, сколько лет, сколько зим', 'Такое ощущение что мы встретились только вчера и вот уже прошло почти 5 лет', "Грустный факт мы ни разу не праздновали 14 февраля рядом, это грустно...", "Давай в следующем году исправим?", "Следуй дальше к фантану"
+                'Мур, сколько лет, сколько зим',
+                'Такое ощущение что мы встретились только вчера и вот уже прошло почти 5 лет',
+                "Грустный факт мы ни разу не праздновали 14 февраля рядом, это грустно...",
+                "Давай в следующем году исправим?",
+                "Следуй дальше к фонтану"
             ], [
                 "Бегу", "Лись :3"
             ])
@@ -55,21 +60,25 @@ class GameMain extends Scene {
 
         this.physics.add.collider(this.player, star3, () => {
             dialogManager.startDialog(this, [
-                "Я рада что ты есть в моей жизни,", "Благодаря тебе я расту и развиваюсь, и я не всегда могу сказать насколько я тебе благодарна", "Я хочу что бы знал, что я счастлива рядом с тобой, и надеюсь это взаимно :3", "Я хочу тебе пожелать больше меня в твоей жизни, желательно в личном пространстве, не болей и оставайся таким же мур", "Я тебя тьмок"
+                "Я рада что ты есть в моей жизни,",
+                "Благодаря тебе я расту и развиваюсь, и я не всегда могу сказать насколько я тебе благодарна",
+                "Я хочу что бы знал, что я счастлива рядом с тобой, и надеюсь это взаимно :3",
+                "Я хочу тебе пожелать больше меня в твоей жизни, желательно в личном пространстве, не болей и оставайся таким же мур",
+                "Я тебя тьмок, а дальше к следующей звездочке"
             ], [
                 'Тьмок', 'Лись :3'
             ])
             star3.destroy()
+        })
+        this.physics.add.collider(this.player, star4, () => {
             this.scene.start('Valentine')
         })
-
         if (layerWater && layerTree && layerHouse && layerInsideH) {
             this.physics.add.collider(this.player, layerWater);
             this.physics.add.collider(this.player, layerTree);
             this.physics.add.collider(this.player, layerHouse)
             this.physics.add.collider(this.player, layerInsideH)
         }
-
     }
 
     update() {

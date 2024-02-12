@@ -21,7 +21,7 @@ export default class Valentine extends Phaser.Scene {
         const heartS5 = new SpriteGenerator(this, 290, 420, 'heart2', 2, 'heart2', true)
         const heartS6 = new SpriteGenerator(this, 650, 420, 'heart2', 2, 'heart2', true)
 
-        this.add.text(200, 300, 'Я люблю тебя, мур', {
+        const text = this.add.text(200, 300, 'Я люблю тебя, мур', {
             fontSize: '52px',
             color: '#03045e'
 
