@@ -1,8 +1,8 @@
 import { Scene } from 'phaser'
-import Player from '../sceen/player'
+import Player from '../components/player'
 // import debugDraw from '../utils/debug'
-import SpriteGenerator from './sprite-generator'
-import DialogManager from './dialog'
+import SpriteGenerator from '../components/sprite-generator'
+import DialogManager from '../components/dialog'
 
 
 class GameMain extends Scene {

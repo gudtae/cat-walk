@@ -1,18 +1,14 @@
 import './style.css'
-import { Game} from 'phaser'
-import GameMain from './components';
-import PreloadGame from './sceen/prelode';
-import Valentine from './sceen/valentine';
-import Credits from './sceen/credits';
+import GameMain from '../sceen/game-main';
+import PreloadGame from '../sceen/prelode';
+import Valentine from '../sceen/valentine';
+import Credits from '../sceen/credits';
 
-const canvas = document.getElementById('app') as HTMLCanvasElement
-
-
-const config = {
+export const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.CANVAS,
   width: 940,
   height: 600,
-  canvas,
+  parent: 'phaser',
   physics: {
     default: 'arcade',
     arcade: {
@@ -26,6 +22,8 @@ const config = {
     zoom: 3
   },
   scene: [PreloadGame, GameMain, Valentine, Credits],
+  render: {
+    pixelArt: true
+  }
 };
 
-new Game(config);
